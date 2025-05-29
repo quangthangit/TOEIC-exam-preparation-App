@@ -3,10 +3,10 @@ package com.example.toeic_exam_preparation_app.ui.fragment.main
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.example.toeic_exam_preparation_app.R
 
 class SplashFragment : Fragment() {
