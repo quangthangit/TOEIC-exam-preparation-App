@@ -9,6 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.toeic_exam_preparation_app.ui.activity.HomeActivity
 import com.example.toeic_exam_preparation_app.ui.fragment.main.SplashFragment
+import com.example.toeic_exam_preparation_app.util.AuthManager
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,22 +21,5 @@ class MainActivity : AppCompatActivity() {
             view.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-        val authManager = AuthManager(this)
-        val token = authManager.getToken()
-
-        if (token.isNullOrEmpty()) {
-            replaceFragment(SplashFragment())
-        } else {
-            val intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-    }
-    private fun replaceFragment(fragment: Fragment) {
-        val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.mainLayout, fragment)
-        fragmentTransaction.commit()
     }
 }
