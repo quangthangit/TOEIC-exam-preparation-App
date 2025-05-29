@@ -21,5 +21,22 @@ class MainActivity : AppCompatActivity() {
             view.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val authManager = AuthManager(this)
+        val token = authManager.getToken()
+
+        if (token.isNullOrEmpty()) {
+            replaceFragment(SplashFragment())
+        } else {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+    }
+    private fun replaceFragment(fragment: Fragment) {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.mainLayout, fragment)
+        fragmentTransaction.commit()
     }
 }
