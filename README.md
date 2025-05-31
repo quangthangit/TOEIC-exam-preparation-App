@@ -7,7 +7,7 @@
 - `Retrofit`
 - `SpringBoot`
 - `MySql`
-- 
+## Task management : https://wsgsuq86nf7w.sg.larksuite.com/wiki/HfjMwLIqCina8VkhUNvlZIIAgzb?from=from_copylink
 ## 📂
 ```bash
 app/
@@ -20,6 +20,3 @@ app/
 │   ├── fragment/
 │   └── adapter/      
 ├── utils/
-
-## 📂 Task management
-- https://wsgsuq86nf7w.sg.larksuite.com/wiki/HfjMwLIqCina8VkhUNvlZIIAgzb?from=from_copylink
