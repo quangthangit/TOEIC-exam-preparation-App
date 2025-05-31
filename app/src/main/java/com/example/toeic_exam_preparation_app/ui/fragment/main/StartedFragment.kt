@@ -30,6 +30,12 @@ class StartedFragment : Fragment() {
                 .replace(R.id.mainLayout,LoginFragment())
                 .commit()
         }
+
+        btnRegister.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.mainLayout,RegisterFragment())
+                .commit()
+        }
         return view
     }
 }
