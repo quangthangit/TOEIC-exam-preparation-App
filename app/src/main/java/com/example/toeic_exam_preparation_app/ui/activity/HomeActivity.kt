@@ -26,12 +26,12 @@ class HomeActivity : AppCompatActivity() {
 
     private lateinit var homeText : TextView
     private lateinit var vocabularyText : TextView
-    private lateinit var proggressText : TextView
+    private lateinit var progressText : TextView
     private lateinit var accountText : TextView
 
     private lateinit var homeOption : LinearLayout
     private lateinit var vocabularyOption : LinearLayout
-    private lateinit var proggressOption : LinearLayout
+    private lateinit var progressOption : LinearLayout
     private lateinit var accountOption : LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,12 +53,12 @@ class HomeActivity : AppCompatActivity() {
 
         homeText = findViewById<TextView>(R.id.homeT)
         vocabularyText = findViewById<TextView>(R.id.vocabularyT)
-        proggressText = findViewById<TextView>(R.id.proggressT)
+        progressText = findViewById<TextView>(R.id.proggressT)
         accountText = findViewById<TextView>(R.id.accountT)
 
         homeOption = findViewById<LinearLayout>(R.id.homeOption)
         vocabularyOption = findViewById<LinearLayout>(R.id.vocabularyOption)
-        proggressOption = findViewById<LinearLayout>(R.id.proggressOption)
+        progressOption = findViewById<LinearLayout>(R.id.proggressOption)
         accountOption = findViewById<LinearLayout>(R.id.accountOption)
 
         homeText.setTextColor(getResources().getColor(R.color.colorPrimary))
@@ -78,11 +78,11 @@ class HomeActivity : AppCompatActivity() {
             vocabularyText.setTextColor(getResources().getColor(R.color.colorPrimary))
         }
 
-        proggressOption.setOnClickListener {
+        progressOption.setOnClickListener {
             replaceFragment(ProgressFragment())
             resetIcons()
             proggressIcon.setColorFilter(getResources().getColor(R.color.colorPrimary))
-            proggressText.setTextColor(getResources().getColor(R.color.colorPrimary))
+            progressText.setTextColor(getResources().getColor(R.color.colorPrimary))
         }
 
         accountOption.setOnClickListener {
@@ -116,7 +116,7 @@ class HomeActivity : AppCompatActivity() {
         proggressIcon.setColorFilter("#82898F".toColorInt());
         accountIcon.setColorFilter("#82898F".toColorInt());
         accountText.setTextColor("#82898F".toColorInt())
-        proggressText.setTextColor("#82898F".toColorInt())
+        progressText.setTextColor("#82898F".toColorInt())
         homeText.setTextColor("#82898F".toColorInt())
         vocabularyText.setTextColor("#82898F".toColorInt())
     }
