@@ -61,8 +61,8 @@ class HomeActivity : AppCompatActivity() {
         proggressOption = findViewById<LinearLayout>(R.id.proggressOption)
         accountOption = findViewById<LinearLayout>(R.id.accountOption)
 
-        homeText.setTextColor(getResources().getColor(R.color.blue_sky))
-        homeIcon.setColorFilter(getResources().getColor(R.color.blue_sky))
+        homeText.setTextColor(getResources().getColor(R.color.colorPrimary))
+        homeIcon.setColorFilter(getResources().getColor(R.color.colorPrimary))
 
         homeOption.setOnClickListener {
             replaceFragment(HomeFragment())
