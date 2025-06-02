@@ -86,6 +86,7 @@
         tools:layout_editor_absoluteX="20dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/selector_input"
@@ -103,7 +104,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginVertical="10dp"
-        android:fontFamily="serif-monospace"
+        android:fontFamily="serif"
         android:text="Input not found"
         android:textColor="#E25C5C"
         android:visibility="gone"
@@ -123,10 +124,12 @@
         tools:layout_editor_absoluteX="20dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/selector_input"
             android:hint="password"
+            android:inputType="textPassword"
             android:maxLines="1"
             android:padding="18dp"
             android:textSize="16sp"
@@ -139,7 +142,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginVertical="10dp"
-        android:fontFamily="serif-monospace"
+        android:fontFamily="serif"
         android:text="Input not found"
         android:textColor="#E25C5C"
         android:visibility="gone"
@@ -147,30 +150,20 @@
         app:layout_constraintTop_toBottomOf="@+id/passwordInput"
         tools:ignore="HardcodedText" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="0dp"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="20dp"
-        app:cardBackgroundColor="@color/colorPrimary"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordInput">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:padding="15dp"
-            android:text="Login"
-            android:textColor="@android:color/white"
-            app:iconGravity="end" />
-    </androidx.cardview.widget.CardView>
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/border_primary"
+        android:backgroundTint="@color/colorPrimary"
+        android:padding="15dp"
+        android:text="Login"
+        android:textColor="@android:color/white"
+        app:iconGravity="end"
+        app:layout_constraintTop_toBottomOf="@+id/errorPassword"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView2"
@@ -184,7 +177,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -258,17 +251,22 @@
             android:textColor="@color/colorPrimary"
             android:text="Register" />
     </LinearLayout>
-
+    <FrameLayout
+        android:id="@+id/loadingOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="#80000000"/>
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         android:indeterminate="true"
+        style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Large"
+        android:visibility="gone"
+        android:indeterminateTint="@color/colorPrimary"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
