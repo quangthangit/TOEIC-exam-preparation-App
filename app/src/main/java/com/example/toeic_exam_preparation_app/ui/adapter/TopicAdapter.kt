@@ -1,5 +1,6 @@
 package com.example.toeic_exam_preparation_app.ui.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.toeic_exam_preparation_app.R
 import com.example.toeic_exam_preparation_app.data.remote.Topic
+import com.example.toeic_exam_preparation_app.ui.activity.SubTopicActivity
 
 class TopicAdapter(private var itemList: List<Topic>) :
     RecyclerView.Adapter<TopicAdapter.TopicViewHolder>() {
@@ -37,15 +39,15 @@ class TopicAdapter(private var itemList: List<Topic>) :
             append(itemList[position].totalLesson.toString())
             append(" Words")
         }
-//        holder.itemView.setOnClickListener {
-//            val context = holder.itemView.context
-//            val intent = Intent(context, TopicActivity::class.java)
-//            intent.putExtra("vocabularyTopicId", itemList[position].vocabularyTopicId)
-//            intent.putExtra("nameTopic", itemList[position].name)
-//            intent.putExtra("totalWord", itemList[position].totalWord)
-//            intent.putExtra("totalLesson", itemList[position].totalLesson)
-//            context.startActivity(intent)
-//        }
+        holder.itemView.setOnClickListener {
+            val context = holder.itemView.context
+            val intent = Intent(context, SubTopicActivity::class.java)
+            intent.putExtra("vocabularyTopicId", itemList[position].vocabularyTopicId)
+            intent.putExtra("nameTopic", itemList[position].name)
+            intent.putExtra("totalWord", itemList[position].totalWord)
+            intent.putExtra("totalLesson", itemList[position].totalLesson)
+            context.startActivity(intent)
+        }
     }
 
     fun updateTopics(newTopics: List<Topic>) {
