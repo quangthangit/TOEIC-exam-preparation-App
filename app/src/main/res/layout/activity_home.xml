@@ -76,7 +76,7 @@
                 android:id="@+id/vocabularyIcon"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/icon_graduation_cap"
+                android:src="@drawable/icon_work"
                 app:tint="@color/bottom_nav_icon_color" />
 
             <TextView
@@ -106,7 +106,7 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/icon_profile"
+                android:src="@drawable/icon_paper"
                 app:tint="#82898F" />
 
             <TextView
