@@ -52,9 +52,12 @@ class LoginFragment : Fragment() {
 
         progressBar = view.findViewById(R.id.progressBar)
         loadingOverlay = view.findViewById(R.id.loadingOverlay)
+        return view
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         authViewModel = ViewModelProvider(this)[AuthViewModel::class.java]
-
         textRegister.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.mainLayout,RegisterFragment())
@@ -66,7 +69,7 @@ class LoginFragment : Fragment() {
             var isValid = true
 
             if (edtUsername.text.isNullOrBlank()) {
-                errorUsername.text = "Tên đăng nhập không được để trống"
+                errorUsername.text = getString(R.string.errorUsername)
                 errorUsername.visibility = View.VISIBLE
                 isValid = false
             } else {
@@ -74,7 +77,7 @@ class LoginFragment : Fragment() {
             }
 
             if (edtPassword.text.isNullOrBlank()) {
-                errorPassword.text = "Mật khẩu không được để trống"
+                errorPassword.text = getString(R.string.errorPassword)
                 errorPassword.visibility = View.VISIBLE
                 isValid = false
             } else {
@@ -103,7 +106,5 @@ class LoginFragment : Fragment() {
                 Toast.makeText(context, "Login failed: ${exception.message}", Toast.LENGTH_SHORT).show()
             }
         })
-
-        return view
     }
 }
