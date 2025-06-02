@@ -1,12 +1,17 @@
 package com.example.toeic_exam_preparation_app.ui.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.toeic_exam_preparation_app.data.remote.SubTopic
 import com.example.toeic_exam_preparation_app.R
+import com.example.toeic_exam_preparation_app.ui.activity.OverViewVocabularyActivity
+import com.example.toeic_exam_preparation_app.ui.activity.QuizVocabularyActivity
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class SubTopicAdapter(private var itemList: List<SubTopic>) : RecyclerView.Adapter<SubTopicAdapter.TopicViewHolder>() {
 
@@ -27,6 +32,25 @@ class SubTopicAdapter(private var itemList: List<SubTopic>) : RecyclerView.Adapt
     override fun onBindViewHolder(holder: TopicViewHolder, position: Int) {
         holder.name.text = itemList[position].name
         holder.number.text = (position+1).toString()
+        holder.itemView.setOnClickListener {
+            val context = holder.itemView.context
+            val dialog = BottomSheetDialog(context)
+            val view = inflater!!.inflate(R.layout.bottom_sheet_subtopic, null)
+            val btnOverview = view.findViewById<Button>(R.id.btn_overview)
+            val btnQuiz = view.findViewById<Button>(R.id.btn_quiz)
+            btnOverview.setOnClickListener {
+                val intent = Intent(context, OverViewVocabularyActivity::class.java)
+                context.startActivity(intent)
+                dialog.dismiss()
+            }
+            btnQuiz.setOnClickListener {
+                val intent = Intent(context, QuizVocabularyActivity::class.java)
+                context.startActivity(intent)
+                dialog.dismiss()
+            }
+            dialog.setContentView(view)
+            dialog.show()
+        }
     }
 
     fun updateData(newData : List<SubTopic>) {

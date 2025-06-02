@@ -4,6 +4,7 @@ import com.example.toeic_exam_preparation_app.data.remote.LoginRequest
 import com.example.toeic_exam_preparation_app.data.remote.LoginResponse
 import com.example.toeic_exam_preparation_app.data.remote.SubTopic
 import com.example.toeic_exam_preparation_app.data.remote.Topic
+import com.example.toeic_exam_preparation_app.data.remote.Vocabulary
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -19,4 +20,7 @@ interface ApiService {
 
     @GET("admin/sub-topic/findAllByTopic/{id}")
     fun findAllSubTopicByTopic(@Path("id") id: Int): Call<List<SubTopic>>
+
+    @GET("admin/sub-topic/findAllByTopic/{id}")
+    fun findAllVocabularyBySubTopic(@Path("id") id: Int): Call<List<Vocabulary>>
 }
