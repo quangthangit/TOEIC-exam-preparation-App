@@ -82,7 +82,7 @@
         tools:ignore="MissingConstraints">
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
@@ -98,7 +98,7 @@
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageView3">
+            app:layout_constraintTop_toBottomOf="@id/image">
 
             <TextView
                 android:id="@+id/en"
@@ -110,8 +110,10 @@
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
-            <ImageView
+            <ImageButton
+                android:id="@+id/btn_speak"
                 android:layout_width="wrap_content"
+                android:background="@drawable/border_primary"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:padding="10dp"
@@ -199,30 +201,31 @@
         android:orientation="horizontal"
         android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="76dp">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_last"
             android:layout_width="match_parent"
-            android:backgroundTint="@color/colorPrimary"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
             android:layout_weight="1"
             android:background="@drawable/border_primary"
-            android:text="Last"
+            android:backgroundTint="@color/colorPrimary"
             android:fontFamily="serif"
+            android:text="Last"
             android:textColor="@color/white" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_next"
             android:layout_width="match_parent"
-            android:backgroundTint="@color/colorPrimary"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_weight="1"
             android:background="@drawable/border_primary"
-            android:text="Next"
+            android:backgroundTint="@color/colorPrimary"
             android:fontFamily="serif"
+            android:text="Next"
             android:textColor="@color/white" />
 
     </LinearLayout>

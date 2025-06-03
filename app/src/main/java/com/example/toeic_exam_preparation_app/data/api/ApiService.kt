@@ -21,6 +21,6 @@ interface ApiService {
     @GET("admin/sub-topic/findAllByTopic/{id}")
     fun findAllSubTopicByTopic(@Path("id") id: Int): Call<List<SubTopic>>
 
-    @GET("admin/sub-topic/findAllByTopic/{id}")
+    @GET("user/vocabulary/findAllBySubTopic/{id}")
     fun findAllVocabularyBySubTopic(@Path("id") id: Int): Call<List<Vocabulary>>
 }
