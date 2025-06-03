@@ -1,5 +1,6 @@
 package com.example.toeic_exam_preparation_app.data.repository
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.toeic_exam_preparation_app.data.api.RetrofitClient
