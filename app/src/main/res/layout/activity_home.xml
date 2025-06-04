@@ -104,12 +104,14 @@
             android:foreground="@drawable/ripple_circle">
 
             <ImageView
+                android:id="@+id/examIcon"
                 android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_height="wrap_content"
                 android:src="@drawable/icon_paper"
                 app:tint="#82898F" />
 
             <TextView
+                android:id="@+id/examT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"

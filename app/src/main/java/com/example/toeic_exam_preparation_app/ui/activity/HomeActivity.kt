@@ -12,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.toeic_exam_preparation_app.R
 import com.example.toeic_exam_preparation_app.ui.fragment.home.AccountFragment
+import com.example.toeic_exam_preparation_app.ui.fragment.home.ExamFragment
 import com.example.toeic_exam_preparation_app.ui.fragment.home.HomeFragment
 import com.example.toeic_exam_preparation_app.ui.fragment.home.ProgressFragment
 import com.example.toeic_exam_preparation_app.ui.fragment.home.VocabularyFragment
@@ -23,16 +24,19 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var vocabularyIcon : ImageView
     private lateinit var proggressIcon : ImageView
     private lateinit var accountIcon : ImageView
+    private lateinit var examIcon : ImageView
 
     private lateinit var homeText : TextView
     private lateinit var vocabularyText : TextView
     private lateinit var progressText : TextView
     private lateinit var accountText : TextView
+    private lateinit var examText : TextView
 
     private lateinit var homeOption : LinearLayout
     private lateinit var vocabularyOption : LinearLayout
     private lateinit var progressOption : LinearLayout
     private lateinit var accountOption : LinearLayout
+    private lateinit var examOption : LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,16 +54,19 @@ class HomeActivity : AppCompatActivity() {
         vocabularyIcon = findViewById<ImageView>(R.id.vocabularyIcon)
         proggressIcon = findViewById<ImageView>(R.id.proggressIcon)
         accountIcon = findViewById<ImageView>(R.id.accountIcon)
+        examIcon = findViewById<ImageView>(R.id.examIcon)
 
         homeText = findViewById<TextView>(R.id.homeT)
         vocabularyText = findViewById<TextView>(R.id.vocabularyT)
         progressText = findViewById<TextView>(R.id.proggressT)
         accountText = findViewById<TextView>(R.id.accountT)
+        examText = findViewById<TextView>(R.id.examT)
 
         homeOption = findViewById<LinearLayout>(R.id.homeOption)
         vocabularyOption = findViewById<LinearLayout>(R.id.vocabularyOption)
         progressOption = findViewById<LinearLayout>(R.id.proggressOption)
         accountOption = findViewById<LinearLayout>(R.id.accountOption)
+        examOption = findViewById<LinearLayout>(R.id.examOption)
 
         homeText.setTextColor(getResources().getColor(R.color.colorPrimary))
         homeIcon.setColorFilter(getResources().getColor(R.color.colorPrimary))
@@ -90,6 +97,13 @@ class HomeActivity : AppCompatActivity() {
             resetIcons()
             accountIcon.setColorFilter(getResources().getColor(R.color.colorPrimary))
             accountText.setTextColor(getResources().getColor(R.color.colorPrimary))
+        }
+
+        examOption.setOnClickListener {
+            replaceFragment(ExamFragment())
+            resetIcons()
+            examIcon.setColorFilter(getResources().getColor(R.color.colorPrimary))
+            examText.setTextColor(getResources().getColor(R.color.colorPrimary))
         }
 
 //        bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
