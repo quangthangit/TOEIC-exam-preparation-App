@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment.examdesc.PracticeFragment">
+    tools:context=".ui.fragment.examdesc.FullTestFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,11 +15,11 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="10dp"
-            android:textColor="#1f5e39"
-            android:background="@drawable/border_green"
+            android:textColor="#855a1f"
+            android:background="@drawable/border_yellow"
             android:fontFamily="serif"
             android:padding="15dp"
-            android:text="* Pro tips: Hình thức luyện tập từng phần và chọn mức thời gian phù hợp sẽ giúp bạn tập trung vào giải đúng các câu hỏi thay vì phải chịu áp lực hoàn thành bài thi." />
+            android:text="* Sẵn sàng để bắt đầu làm full test? Để đạt được kết quả tốt nhất, bạn cần dành ra 120 phút cho bài test này." />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listPart"
@@ -29,25 +29,6 @@
             android:layout_marginHorizontal="20dp"
             android:background="@color/white" />
 
-        <!-- Dropdown Time -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:layout_marginHorizontal="20dp">
-
-            <AutoCompleteTextView
-                android:id="@+id/autoCompleteTextView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="none"
-                android:text="Choose time"
-                tools:ignore="LabelFor" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Start Button -->
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -55,7 +36,7 @@
             android:background="@drawable/border_primary"
             android:backgroundTint="@color/colorPrimary"
             android:fontFamily="serif"
-            android:text="Bắt đầu làm"
+            android:text="Bắt đầu thi"
             android:textColor="@color/white" />
     </LinearLayout>
 

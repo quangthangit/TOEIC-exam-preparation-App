@@ -6,11 +6,12 @@ import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import android.graphics.Color
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.toeic_exam_preparation_app.R
-import com.example.toeic_exam_preparation_app.ui.fragment.examdesc.ExamFragment
+import com.example.toeic_exam_preparation_app.ui.fragment.examdesc.FullTestFragment
 import com.example.toeic_exam_preparation_app.ui.fragment.examdesc.PracticeFragment
 
 class ExamDescActivity : AppCompatActivity() {
@@ -24,6 +25,7 @@ class ExamDescActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimary)
         setContentView(R.layout.activity_exam_desc)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -47,7 +49,7 @@ class ExamDescActivity : AppCompatActivity() {
         }
 
         textFullTest.setOnClickListener {
-            replaceFragment(ExamFragment())
+            replaceFragment(FullTestFragment())
             textFullTest.setTextColor(getResources().getColor(R.color.colorPrimary))
             viewFullTest.setBackgroundColor(getResources().getColor(R.color.colorPrimary))
 

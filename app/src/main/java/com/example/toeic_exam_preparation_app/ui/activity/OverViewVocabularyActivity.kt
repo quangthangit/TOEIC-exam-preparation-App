@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import coil.load
 import com.example.toeic_exam_preparation_app.R
@@ -33,7 +34,7 @@ class OverViewVocabularyActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_over_view_vocabulary)
-
+        window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimary)
         initViews()
         initTTS()
         initViewModel()
