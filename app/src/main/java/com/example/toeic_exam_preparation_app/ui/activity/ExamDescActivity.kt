@@ -1,23 +1,26 @@
 package com.example.toeic_exam_preparation_app.ui.activity
 
-import ExamDescAdapter
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
+import android.view.View
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Color
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.fragment.app.Fragment
 import com.example.toeic_exam_preparation_app.R
-import com.example.toeic_exam_preparation_app.data.remote.Part
-import com.example.toeic_exam_preparation_app.data.remote.Tag
-import com.example.toeic_exam_preparation_app.util.PartDataSource
+import com.example.toeic_exam_preparation_app.ui.fragment.examdesc.ExamFragment
+import com.example.toeic_exam_preparation_app.ui.fragment.examdesc.PracticeFragment
 
 class ExamDescActivity : AppCompatActivity() {
-    private lateinit var rvParts: RecyclerView
-    private lateinit var adapter: ExamDescAdapter
+
+    private lateinit var textPractice : TextView
+    private lateinit var textFullTest : TextView
+
+    private lateinit var viewPractice : View
+    private lateinit var viewFullTest : View
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -27,14 +30,37 @@ class ExamDescActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val fakeParts = PartDataSource.fakeParts
-        rvParts = findViewById(R.id.listPart)
-        adapter = ExamDescAdapter(fakeParts)
-        rvParts.layoutManager = LinearLayoutManager(this)
-        rvParts.adapter = adapter
-        val languages = resources.getStringArray(R.array.select_time)
-        val arrayAdapter = ArrayAdapter(this, R.layout.item_dropdown, languages)
-        val autocompleteTV = findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView)
-        autocompleteTV.setAdapter(arrayAdapter)
+
+        textPractice = findViewById(R.id.tabPractice)
+        textFullTest = findViewById(R.id.tabFullTest)
+
+        viewPractice = findViewById(R.id.underlinePractice)
+        viewFullTest = findViewById(R.id.underlineDiscussion)
+
+        textPractice.setOnClickListener {
+            replaceFragment(PracticeFragment())
+            textPractice.setTextColor(getResources().getColor(R.color.colorPrimary))
+            viewPractice.setBackgroundColor(getResources().getColor(R.color.colorPrimary))
+
+            textFullTest.setTextColor(Color.GRAY)
+            viewFullTest.setBackgroundColor(Color.TRANSPARENT)
+        }
+
+        textFullTest.setOnClickListener {
+            replaceFragment(ExamFragment())
+            textFullTest.setTextColor(getResources().getColor(R.color.colorPrimary))
+            viewFullTest.setBackgroundColor(getResources().getColor(R.color.colorPrimary))
+
+            textPractice.setTextColor(Color.GRAY)
+            viewPractice.setBackgroundColor(Color.TRANSPARENT)
+        }
+
+        replaceFragment(PracticeFragment())
+    }
+    private fun replaceFragment(fragment: Fragment) {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.examDescLayout, fragment)
+        fragmentTransaction.commit()
     }
 }
