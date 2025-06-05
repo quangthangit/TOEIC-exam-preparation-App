@@ -15,6 +15,9 @@
         android:theme="@style/Theme.TOEICExamPreparationApp"
         tools:targetApi="31">
         <activity
+            android:name=".ui.activity.ExamDescActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activity.QuizVocabularyActivity"
             android:exported="false" />
         <activity

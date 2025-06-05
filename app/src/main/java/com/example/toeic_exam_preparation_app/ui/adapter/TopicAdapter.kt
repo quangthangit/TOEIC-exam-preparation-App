@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.toeic_exam_preparation_app.R
 import com.example.toeic_exam_preparation_app.data.remote.Topic
+import com.example.toeic_exam_preparation_app.ui.activity.ExamDescActivity
 import com.example.toeic_exam_preparation_app.ui.activity.SubTopicActivity
 
 class TopicAdapter(private var itemList: List<Topic>) :
@@ -41,7 +42,7 @@ class TopicAdapter(private var itemList: List<Topic>) :
         }
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context
-            val intent = Intent(context, SubTopicActivity::class.java)
+            val intent = Intent(context, ExamDescActivity::class.java)
             intent.putExtra("vocabularyTopicId", itemList[position].vocabularyTopicId)
             intent.putExtra("nameTopic", itemList[position].name)
             intent.putExtra("totalWord", itemList[position].totalWord)
