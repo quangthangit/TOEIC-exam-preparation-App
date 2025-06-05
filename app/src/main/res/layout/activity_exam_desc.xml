@@ -93,6 +93,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="serif"
+                        android:textStyle="bold"
                         android:text="Làm full test"
                         android:textAlignment="center"
                         android:textSize="16sp"
@@ -124,56 +125,10 @@
                         android:background="@android:color/transparent" />
                 </LinearLayout>
             </LinearLayout>
-
-            <!-- Info Text -->
-            <TextView
-                android:id="@+id/content"
+            <FrameLayout
+                android:id="@+id/examDescLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="10dp"
-                android:textColor="#1f5e39"
-                android:background="@drawable/border_green"
-                android:fontFamily="serif"
-                android:padding="15dp"
-                android:text="* Pro tips: Hình thức luyện tập từng phần và chọn mức thời gian phù hợp sẽ giúp bạn tập trung vào giải đúng các câu hỏi thay vì phải chịu áp lực hoàn thành bài thi." />
-
-            <!-- List Parts -->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/listPart"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:nestedScrollingEnabled="false"
-                android:layout_marginHorizontal="20dp"
-                android:background="@color/white" />
-
-            <!-- Dropdown Time -->
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp">
-
-                <AutoCompleteTextView
-                    android:id="@+id/autoCompleteTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="none"
-                    android:text="Choose time"
-                    tools:ignore="LabelFor" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <!-- Start Button -->
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:background="@drawable/border_primary"
-                android:backgroundTint="@color/colorPrimary"
-                android:fontFamily="serif"
-                android:text="Bắt đầu làm"
-                android:textColor="@color/white" />
+                android:layout_height="match_parent" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
